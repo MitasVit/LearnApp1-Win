@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Zdrojové soubory">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Hlavičkové soubory">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Soubory zdrojů">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Zdrojové soubory\ImGui">
+      <UniqueIdentifier>{70ca5d08-83d5-46c4-997a-7111f0e78aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\cparse">
+      <UniqueIdentifier>{427e1f07-2b6f-4c52-8a0a-547c99590588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\rapidcsv">
+      <UniqueIdentifier>{1db21557-9838-4ba9-8c7a-1c4e675e5086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\json">
+      <UniqueIdentifier>{6484a83d-2f43-4880-a362-5d870c89cf81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\stb">
+      <UniqueIdentifier>{04f04e09-995d-4928-9096-5b3e9cec2c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\glad">
+      <UniqueIdentifier>{8bdaba5f-417f-4e9a-ba7c-63e9fb55aa1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\others">
+      <UniqueIdentifier>{b74fc4f4-0652-43a1-aa93-b138a8e90d79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zdrojové soubory\my">
+      <UniqueIdentifier>{ed429c15-0515-484c-94f5-f8a547bd4c79}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\cparse\builtin-features.cpp">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\cparse\containers.cpp">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\cparse\functions.cpp">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\cparse\packToken.cpp">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\cparse\shunting-yard.cpp">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stb\stb.cpp">
+      <Filter>Zdrojové soubory\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\glad\glad.c">
+      <Filter>Zdrojové soubory\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgradient.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_demo.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_draw.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_impl_glfw.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_plot.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_stdlib.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_tables.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\imgui\imgui_widgets.cpp">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\calculation.cpp">
+      <Filter>Zdrojové soubory\my</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\Task.cpp">
+      <Filter>Zdrojové soubory\my</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\nlohmann\adl_serializer.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\byte_container_with_subtype.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\json.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\json_fwd.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\ordered_map.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\thirdparty\hedley\hedley.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\thirdparty\hedley\hedley_undef.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\abi_macros.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\exceptions.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\hash.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\json_custom_base_class.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\json_pointer.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\json_ref.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\macro_scope.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\macro_unscope.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\string_concat.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\string_escape.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\nlohmann\detail\value_t.hpp">
+      <Filter>Zdrojové soubory\json</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\cparse\containers.h">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\cparse\functions.h">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\cparse\packToken.h">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\cparse\shunting-yard.h">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\cparse\shunting-yard-exceptions.h">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\rapidcsv\rapidcsv.h">
+      <Filter>Zdrojové soubory\rapidcsv</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stb\stb_easy_font.h">
+      <Filter>Zdrojové soubory\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stb\stb_image.h">
+      <Filter>Zdrojové soubory\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stb\stb_image_resize.h">
+      <Filter>Zdrojové soubory\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\stb\stb_image_write.h">
+      <Filter>Zdrojové soubory\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glad\gl.h">
+      <Filter>Zdrojové soubory\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glad\glad.h">
+      <Filter>Zdrojové soubory\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glad\gles2.h">
+      <Filter>Zdrojové soubory\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glad\vulkan.h">
+      <Filter>Zdrojové soubory\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imstb_truetype.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imconfig.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgradient.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_impl_glfw.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_impl_opengl3.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_internal.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_plot.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imgui_stdlib.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imHotKey.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imspinner.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imstb_rectpack.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\imgui\imstb_textedit.h">
+      <Filter>Zdrojové soubory\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\fa_solid_900.h">
+      <Filter>Zdrojové soubory\others</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\font_awesome_5.h">
+      <Filter>Zdrojové soubory\others</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\tahoma.h">
+      <Filter>Zdrojové soubory\others</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\calculation.h">
+      <Filter>Zdrojové soubory\my</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Header.h">
+      <Filter>Zdrojové soubory\my</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Task.h">
+      <Filter>Zdrojové soubory\my</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\cparse\builtin-features.inc">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </None>
+    <None Include="lib\cparse\builtin-features\functions.inc">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </None>
+    <None Include="lib\cparse\builtin-features\operations.inc">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </None>
+    <None Include="lib\cparse\builtin-features\reservedWords.inc">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </None>
+    <None Include="lib\cparse\builtin-features\typeSpecificFunctions.inc">
+      <Filter>Zdrojové soubory\cparse</Filter>
+    </None>
+  </ItemGroup>
+</Project>
