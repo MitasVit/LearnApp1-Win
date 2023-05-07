@@ -1,28 +1,10 @@
-# a
+# Learning App
 
-## b
+Extremly random
 
-### c
+## Folders explanation
 
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-- d
-
+- inc, include path
+- lib, thirdpart libraries
+- res, resources
+- Debug, debug output
