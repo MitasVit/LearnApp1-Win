@@ -2140,11 +2140,13 @@ ImFont* ImFontAtlas::AddFontFromFileTTF(const char* filename, float size_pixels,
     void* data = ImFileLoadToMemory(filename, "rb", &data_size, 0);
     if (!data)
     {
+        //added by me
+        printf("\nERROR: %s \n", filename);
         IM_ASSERT_USER_ERROR(0, "Could not load font file!");
         return NULL;
     }
     ImFontConfig font_cfg = font_cfg_template ? *font_cfg_template : ImFontConfig();
-    if (font_cfg.Name[0] == '\0')
+    if(font_cfg.Name[0] == '\0')
     {
         // Store a short copy of filename into into the font name for convenience
         const char* p;

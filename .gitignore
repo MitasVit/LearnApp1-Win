@@ -7,3 +7,4 @@
 *.dll
 *.tlog
 /x64
+*.bat

@@ -371,7 +371,8 @@ void ColorTextByValue(ImFont* font, int value) {
 }
 
 
-int main(int, char**)
+int main(int argc, char* argv[])
+
 {
     // Setup window
     glfwSetErrorCallback(glfw_error_callback);
@@ -447,7 +448,7 @@ int main(int, char**)
 
     ImGuiIO& io = ImGui::GetIO();
     io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\segoeui.ttf", 18.0f);
-    ImGui::MergeIconsWithLatestFont(18.f, false);
+    //ImGui::MergeIconsWithLatestFont(18.f, false);
 
     ImFontConfig font_cfg;
     font_cfg.FontDataOwnedByAtlas = false;
@@ -460,6 +461,32 @@ int main(int, char**)
     // io->Fonts->AddFontFromMemoryTTF((void*)another_font, sizeof(another_font), 17.f, &font_cfg);
     // ImGui::MergeIconsWithLatestFont(16.f, false);
 
+
+    cout << argv[0] << endl;
+
+
+    //try load fonts
+
+    vector<string> fontiky = { "../../../res/fonts/Roboto-Medium.ttf", "/../res/fonts/Roboto-Medium.ttf", "../../res/fonts/Roboto-Medium.ttf",
+        "res/fonts/Roboto-Medium.ttf", "../../../../res/fonts/Roboto-Medium.ttf" };
+    for (int i = 0; i < fontiky.size(); i++) {
+        cout << "Trying: " << fontiky.at(i) << endl;
+        try {
+            //io.Fonts->AddFontFromFileTTF(f.at(i).c_str(), 18.0f);
+            ifstream _i(fontiky.at(i).c_str());
+            if (_i.fail()) {
+                _i.close();
+                throw runtime_error("bruh");
+            }
+            _i.close();
+            cout << "ok :)" << endl;
+        }
+        catch (exception& e) {
+            cout << "not ok :/" << endl << endl;
+        }
+    }
+
+
     // Our state
     bool show_demo_window = true;
     bool show_another_window = false;
@@ -467,13 +494,13 @@ int main(int, char**)
 
     bool* dark_prince = new bool(true);
     bool* op = new bool(true);
-    io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 18.0f);
+    io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 18.0f);
     ImGui::MergeIconsWithLatestFont(18.f, false);
-    ImFont* font1 = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 50.0f);
+    ImFont* font1 = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 50.0f);
     ImGui::MergeIconsWithLatestFont(50.f, false);
-    ImFont* title = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 25.0f);
+    ImFont* title = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 25.0f);
     ImGui::MergeIconsWithLatestFont(25.f, false);
-    ImFont* text = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 30.0f);
+    ImFont* text = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 30.0f);
     int w = 0, h = 0;
     ImGui::MergeIconsWithLatestFont(15.f, false);
 
@@ -492,7 +519,7 @@ int main(int, char**)
 
 
 
-    ImTexture acc("accw.png");
+    ImTexture acc("res/img/accw.png");
 
     //for planner + planner menu
     ImFont* planner_font = io.Fonts->AddFontFromFileTTF("c:/Windows/Fonts/segoeui.ttf", 150.0f);
@@ -508,16 +535,16 @@ int main(int, char**)
 
 
     //analysis textures, fonts
-    ImFont* ana_text = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 50.0f, NULL, ranges.Data);
+    ImFont* ana_text = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 50.0f, NULL, ranges.Data);
     ImGui::MergeIconsWithLatestFont(50.0f, false);
 
-    ImFont* ana_percent = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto/Roboto-Black.ttf", 50.0f, NULL, ranges.Data);
+    ImFont* ana_percent = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto/Roboto-Black.ttf", 50.0f, NULL, ranges.Data);
     ImGui::MergeIconsWithLatestFont(50.0f, false);
 
-    ImTexture ana_notify("notify.png");
-    ImTexture ana_check("check.png");
-    ImTexture ana_calcheck("cal_check.png");
-    ImTexture ana_save("save.png");
+    ImTexture ana_notify("res/img/notify.png");
+    ImTexture ana_check("res/img/check.png");
+    ImTexture ana_calcheck("res/img/cal_check.png");
+    ImTexture ana_save("res/img/save.png");
 
     int ana_num_solved = 54, ana_num_solved_ch = 7;
     int ana_num_feedback = 1, ana_num_feedback_ch = -1;//ch = value change
@@ -527,7 +554,7 @@ int main(int, char**)
 
 
 
-    ImFont* smradoch = io.Fonts->AddFontFromFileTTF("../../res/fonts/Noto_Sans/NotoSans-Regular.ttf", 30.f);
+    ImFont* smradoch = io.Fonts->AddFontFromFileTTF("res/fonts/Noto_Sans/NotoSans-Regular.ttf", 30.f);
     ImGui::MergeIconsWithLatestFont(30.0f, false);
 
 
@@ -538,7 +565,7 @@ int main(int, char**)
     list1->tasks.push_back(new Task("Do the test", false, NULL));
     list1->tasks.push_back(new Task("Do the test2", false, NULL));
     list1->tasks.push_back(new Task("Go with dog", false, NULL));
-    list1->LoadFonts("../../misc/fonts");
+    list1->LoadFonts("res/fonts");
     list1->name = "List1";
     vector<TaskList*> l1 = { list1 };
     TaskWidget test_widget(l1);
@@ -566,7 +593,7 @@ int main(int, char**)
 
     string account_name_text = "Mitas Vit";//kotva
     //RobotoSerif/RobotoSerif-ExtraLight.ttf
-    ImFont* account_name = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 40.0, NULL, ranges.Data);
+    ImFont* account_name = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 40.0, NULL, ranges.Data);
     ImGui::MergeIconsWithLatestFont(40.0f, false);
 
     ImFont* summary = io.Fonts->AddFontFromFileTTF("c:/Windows/Fonts/segoeui.ttf", 150.f);
@@ -574,28 +601,28 @@ int main(int, char**)
 
     ImVec2 account_logout_pos = ImVec2(0, 0), account_logout_size = ImVec2(0, 0);
     ImVec2 account_setting_pos = ImVec2(0, 0), account_setting_size = ImVec2(0, 0);
-    ImFont* account_logout = io.Fonts->AddFontFromFileTTF("../../res/fonts/Roboto-Medium.ttf", 20.0f, NULL, ranges.Data);
+    ImFont* account_logout = io.Fonts->AddFontFromFileTTF("res/fonts/Roboto-Medium.ttf", 20.0f, NULL, ranges.Data);
     ImGui::MergeIconsWithLatestFont(20.0f, false);
 
 
 
-    ImTexture logo_event("../../res/img/png/events_dark.png");//png/event.png
-    ImTexture logo_calendar("../../res/img/png/calendar_dark.png");//png/calendar.png
-    ImTexture logo_aim("../../res/png/img/aim_dark.png");//png/aim.png
+    ImTexture logo_event("res/img/png/events_dark.png");//png/event.png
+    ImTexture logo_calendar("res/img/png/calendar_dark.png");//png/calendar.png
+    ImTexture logo_aim("res/img/png/aim_dark.png");//png/aim.png
 
 
-    ImTexture logo_planner("../../res/img/planner.png");
-    ImTexture logo_explore("../../res/img/explore.png");
-    ImTexture logo_learning("../../res/img/learning.png");
+    ImTexture logo_planner("res/img/planner.png");
+    ImTexture logo_explore("res/img/explore.png");
+    ImTexture logo_learning("res/img/learning.png");
 
 
-    ImTexture logo_house("../../res/img/png/house.png");
+    ImTexture logo_house("res/img/png/house.png");
 
-    ImTexture logo_nextbut("../../res/img/next.png"), logo_nextbut_hov("../../res/img/next2.png");
+    ImTexture logo_nextbut("res/img/next.png"), logo_nextbut_hov("res/img/next2.png");
     //299x46
     //sirka = vyska * 6,5
     //vyska = vyska_next / 2
-    ImTexture logo_fullsum("../../res/img/fullsum.png"), logo_fullsum_hov("../../res/img/fullsum2.png");
+    ImTexture logo_fullsum("res/img/fullsum.png"), logo_fullsum_hov("res/img/fullsum2.png");
     ImVec2 logo_fullsum_pos = ImVec2(0, 0), logo_fullsum_size = ImVec2(0, 0);
     //vyska - 8.75% z vysky
     ImVec2 logo_nextbut_size = ImVec2(0,0), logo_nextbut_pos = ImVec2(0, 0);
@@ -629,6 +656,11 @@ int main(int, char**)
     bool loaded = false, started = false;
     double cursor_x = 0, cursor_y = 0;
 
+
+    //some random code, why not
+    //https://github.com/ocornut/imgui/pull/2005
+    io.KeysDown[GLFW_KEY_ENTER] |= io.KeysDown[GLFW_KEY_KP_ENTER];
+
     
     // Now using a custom title...
     ImGuiToast toast(ImGuiToastType_Success, 5000); // <-- content can also be passed here as above
@@ -653,7 +685,7 @@ int main(int, char**)
     bool ___loaded = false;
     ImTexture latex;
 
-    string font_path = "../../res/fonts/";
+    string font_path = "res/fonts/";
     tag* _tags = new tag[3];
     _tags[0] = { 1, "physics" };
     _tags[1] = { 2, "math" };

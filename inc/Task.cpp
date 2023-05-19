@@ -504,20 +504,20 @@ TaskList::TaskList(string _name, ImVec4 _theme_color) {
 
 void TaskList::LoadFonts(string font_folder, bool mode) {
     if (mode) {
-        FontText = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 15.0f);
-        MyMergeIconsWithLatestFont(15.f, false);
+        FontText = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 30.0f);
+        MyMergeIconsWithLatestFont(30.f, false);
         FontTitle = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 75.0f);
         MyMergeIconsWithLatestFont(30.f, false);
-        FontDate = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 10.0f);
-        MyMergeIconsWithLatestFont(10.f, false);
+        FontDate = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 24.0f);
+        MyMergeIconsWithLatestFont(24.f, false);
     }
     else {
-        FontText = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Roboto/Roboto-Medium.ttf").c_str(), 15.0f);
-        MyMergeIconsWithLatestFont(15.f, false);
+        FontText = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Roboto/Roboto-Medium.ttf").c_str(), 30.0f);
+        MyMergeIconsWithLatestFont(30.f, false);
         FontTitle = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Roboto/Roboto-Medium.ttf").c_str(), 75.0f);
         MyMergeIconsWithLatestFont(30.f, false);
-        FontDate = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 10.0f);
-        MyMergeIconsWithLatestFont(10.f, false);
+        FontDate = ImGui::GetIO().Fonts->AddFontFromFileTTF((font_folder + "/Noto_Sans/NotoSans-Regular.ttf").c_str(), 24.0f);
+        MyMergeIconsWithLatestFont(24.f, false);
     }
     
 }
@@ -881,12 +881,12 @@ void TaskList::DeleteTask(int index) {
     
     //tmp = new Task();
     //blur on bg
-    /*ImGui::BringWindowToDisplayFront(ImGui::GetCurrentWindow());
+    ImGui::BringWindowToDisplayFront(ImGui::GetCurrentWindow());
     ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
     ImGui::SetNextWindowPos(ImVec2(0, 0));
-    ImGui::Begin("Blur", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs);
-    */
-    ImGui::BeginPopup("Blur", ImGui::GetIO().DisplaySize, ImVec2(0, 0));
+    ImGui::Begin("Blur2", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs);
+    
+   // ImGui::BeginPopup("Blur", ImGui::GetIO().DisplaySize, ImVec2(0, 0));
     ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0.5f));
     ImGui::GetWindowDrawList()->AddRectFilled(ImGui::GetWindowPos(), ImGui::GetWindowPos()+ImGui::GetWindowSize(), ImGui::GetColorU32(ImGuiCol_WindowBg));
     ImGui::PopStyleColor();
@@ -910,6 +910,17 @@ void TaskList::DeleteTask(int index) {
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1, 0, 0, 1));
     ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.8, 0, 0, 1));
     if (ImGui::Button("Delete")) {
+        cout << "Erasing task at: " << index << "(" << tasks.at(index)->title << ")" << endl;
+        delete tasks.at(index);
+        tasks.erase(tasks.begin() + index);
+        SortTasks();
+        in_action = false;
+        action = 0;
+        once = false;
+        tmp = new Task();
+    }
+
+    if (ImGui::IsKeyPressed(ImGuiKey_Enter)) {
         cout << "Erasing task at: " << index << "(" << tasks.at(index)->title << ")" << endl;
         delete tasks.at(index);
         tasks.erase(tasks.begin() + index);
@@ -1063,7 +1074,8 @@ void TaskList::Draw(ImVec2 lu_corn, ImVec2 rd_corn, int w, int h, ImVec2 cursorp
        // ImGui::Checkbox("c", &tasks.at(i)->completed);
         ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(-ImGui::GetStyle().ItemSpacing.x, 0));
         ImGui::SameLine(FontText->CalcTextSizeA(FontText->FontSize, FLT_MAX, 0, tasks.at(i)->title.c_str()).x + 40.f);
-        if (ImGui::Button(ICON_FA_PEN)) {
+        string b = "\xef\x8c\x84##" + to_string(i);//ICON_FA_PEN
+        if (ImGui::Button(b.c_str())) {
             //edit
             in_action = true;
             action = 1;
@@ -1071,7 +1083,8 @@ void TaskList::Draw(ImVec2 lu_corn, ImVec2 rd_corn, int w, int h, ImVec2 cursorp
             cout << "Edit task for: " << i << endl;
         }
         ImGui::SameLine(FontText->CalcTextSizeA(FontText->FontSize, FLT_MAX, 0, tasks.at(i)->title.c_str()).x + 65.f);
-        if (ImGui::Button(ICON_FA_TRASH_ALT)) {
+        string a = "\xef\x8b\xad##" + to_string(i);//ICON_FA_TRASH_ALT
+        if (ImGui::Button(a.c_str())) {
             //delete
             in_action = true;
             action = 2;
@@ -1172,31 +1185,48 @@ bool TaskList::CopyToClipboard() {
 
         string str = j.dump();
 
+        if (str.length() == 0) {
+            throw runtime_error("cannot copy empty string to clipboard.");
+        }
+
         if (!OpenClipboard(NULL))
             return false;
 
         // Clear the clipboard
-        EmptyClipboard();
+        if (!EmptyClipboard()) {
+            throw runtime_error("cannot clear the clipboard.");
+        }
 
         // Get the size of the string
         size_t len = str.length();
 
         // Allocate memory for the string
         HGLOBAL hMem = GlobalAlloc(GMEM_MOVEABLE, len + 1);
+        if (hMem == NULL) {
+            throw runtime_error("cannot allocate memory for the string.");
+        }
 
         // Lock the memory and copy the string into it
         char* pBuf = (char*)GlobalLock(hMem);
+        if (pBuf == NULL) {
+            throw runtime_error("can't lock memory to copy string");
+        }
         memcpy(pBuf, str.c_str(), len + 1);
         GlobalUnlock(hMem);
 
         // Set the clipboard data
-        SetClipboardData(CF_TEXT, hMem);
+        if (!SetClipboardData(CF_TEXT, hMem)) {
+            throw runtime_error("cannot set the cliboard data.");
+        }
 
         // Close the clipboard
-        CloseClipboard();
+        if (!CloseClipboard()) {
+            throw runtime_error("cannot close the clipboard.");
+        }
         return true;
     }
     catch (exception& e) {
+        cout << "ERROR: " << e.what() << endl;
         return false;
     }
 }
